@@ -43,6 +43,8 @@ ZSH_THEME="bira"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
+source ~/bin/dotfiles/zsh/aliases
+source ~/bin/dotfiles/zsh/env
+source ~/bin/dotfiles/zsh/prompt
 # Customize to your needs...
 export PATH=$PATH:/home/fadi/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/fadi/bin:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/tools:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/platform-tools:/usr/share/ruby-rvm/bin:/home/fadi/bin:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/tools:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/platform-tools:/home/fadi/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/fadi/bin:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/tools:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/platform-tools:/usr/share/ruby-rvm/bin:/home/fadi/bin:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/tools:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/platform-tools:/home/fadi/bin:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/tools:/home/fadi/Desktop/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
