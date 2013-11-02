@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/usr/lib/php5/20090626'
+let g:netrw_dirhist_2='/etc/apache2/sites-available'
+let g:netrw_dirhist_3='/etc/apache2/conf.d'
+let g:netrw_dirhist_4='/etc/apache2/sites-available'
+let g:netrw_dirhist_5='/home/fadi/opensooq.SooqAdmin/trunk'
+let g:netrw_dirhist_6='/home/fadi/.oh-my-zsh'
+let g:netrw_dirhist_7='/home/fadi/.vim'
