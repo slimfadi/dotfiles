@@ -1,82 +1,34 @@
 #!/bin/sh
 alias install='sudo apt-get install'
-alias cp='cp -iv'
-alias mv='mv -iv'
 alias la='ls -alh'
-cs() { cd "$1" && ls --sort time -alh; }
-alias documents='cs ~/Documents'
+cs() { cd "$1" && ls -alh; }
+dbexec() {ssh -t fahassan.souq@fahassan.souq.jdc.dev "mysql -h devmarkdb20151016.ciht5im6msyg.eu-west-1.rds.amazonaws.com -u souq -puHhFHUQP souq_hitmeister -e '$1'" }
 alias downloads='cs ~/Downloads'
-alias desktop='cs ~/Desktop'
-alias music='cs ~/dumpfile/temp_music'
-alias videos='cs ~/Videos'
-alias books='cs ~/dumpfile/books'
-alias learning='cs ~/dumpfile/learning'
-alias dumpfile='cs ~/dumpfile'
-alias movies='cs ~/dumpfile/movies '
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias go='google-chrome http://facebook.com http://gmail.com http://email.slimfadi.com http://music.fadi-webs.com http://tickets.fadi-webs.com'
 alias my='ssh slimfadi@slimfadi.webfactional.com'
-alias www='cs /var/www'
-alias sph='cs /usr/local/sphinx/'
 alias add_alias='vim ~/bin/dotfiles/zsh/aliases'
-alias o='xdg-open'
-alias projects='cs ~/Desktop/projects'
-alias muzul='cs ~/Desktop/projects/muzul/'
+alias o='open'
+alias commit_files='git diff-tree --no-commit-id --name-only -r'
+alias push='git push -f dev HEAD:master'
+alias fetch='git fetch origin'
 
 
-#opensooq stuff
-alias os_web1='ssh -i ~/.ssh/dev_web01-1.pem ubuntu@ec2-54-224-50-199.compute-1.amazonaws.com'
-alias os_admin='ssh -i ~/.ssh/dev_web02.pem ubuntu@ec2-54-242-210-252.compute-1.amazonaws.com'
-alias os_db1='ssh -i ~/.ssh/dev_db01.pem ubuntu@54.225.65.80'
-alias os_solr='ssh -i ~/.ssh/solr_dev.pem ubuntu@54.225.65.95'
-alias apache_log='tail -f /var/log/apache2/error.log'
-alias ares='sudo service apache2 restart'
-alias sites_available='sudo subl /etc/apache2/sites-available/default'
-alias dev_log='tail -f /var/www/dev_2.8.1/protected/runtime/application.log'
-alias test_log='tail -f /var/www/opensooq/protected/runtime/application.log'
-alias checklists='cd ~/Desktop/checklists'
-alias svndiff='svn diff --diff-cmd /usr/bin/diff -x "-w"'
-alias solr_dev='cd /var/www/dev_2.8/solr-4.3.0/solr/;java -Xms512M -Xmx1024M -jar start.jar'
-alias solr_test='cd /var/www/opensooq/solr-4.3.0/solr/;java -Xms512M -Xmx1024M -jar start.jar'
-function new_check_list() { cp ~/Desktop/checklists/template.txt ~/Desktop/checklists/$1.txt; cd ~/Desktop/checklists; subl $1.txt;  }
-alias chmod='sudo chmod'
-alias os_start='subl &; tmuxinator start os_dev'
-alias os='cd /var/www/opensooq'
+
+
+
+alias db='ssh -t fahassan.souq@fahassan.souq.jdc.dev '\''mysql -h devmarkdb20151016.ciht5im6msyg.eu-west-1.rds.amazonaws.com -u souq -puHhFHUQP souq_hitmeister'\'
+
+alias dbe='ssh -t fahassan.souq@fahassan.souq.jdc.dev '\''mysql -h devpredb.ciht5im6msyg.eu-west-1.rds.amazonaws.com -u souq -puHhFHUQP -e "show databases;"'\'
+
 alias ggraph='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
-colors() {
-	for i in {0..255} ; do
-		printf "\x1b[38;5;${i}mcolour${i}\n"
-	done
-}
-solr() {
-	cd /var/www/solr/solr-4.6.0/solr/;
-	java -jar start.jar;
-}
-ass() {
-	cd /var/www/opensooq/httpdocs/assets
-	sudo rm -r *
-}
 
+alias undo_pull='git reset HEAD@{1}'
 
-function extract() {
-	if [ -f $1 ] ; then
-		case $1 in
-			*.tar.bz2) tar xvjf $1 ;;
-			*.tar.gz) tar xvzf $1 ;;
-			*.bz2) bunzip2 $1 ;;
-			*.rar) unrar x $1 ;;
-			*.gz) gunzip $1 ;;
-			*.tar) tar xvf $1 ;;
-			*.tbz2) tar xvjf $1 ;;
-			*.tgz) tar xvzf $1 ;;
-			*.zip) unzip $1 ;;
-			*.Z) uncompress $1 ;;
-			*.7z) 7z x $1 ;;
-			*) echo "'$1' cannot be extracted via >extract<" ;;
-		esac
-	else
-		echo "'$1' is not a valid file!"
-	fi
-}
+alias editgit="subl `git status --porcelain | awk '{print $2}'`"
+
+alias sync_music='rsync -avz -e ssh --exclude=.DS_Store --delete ~/Dropbox/music/ osmc@192.168.1.3:~/Music/'
+alias sync_music_local='sudo rsync -avz -e ssh --exclude=.DS_Store --delete ~/Dropbox/music/ /var/www/music/music/ && sudo chmod -R 777 /var/www/music/music'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome &'
+
+ma() {mv ~/Dropbox/music/$1 ~/Dropbox/music\ archive/$1 }
